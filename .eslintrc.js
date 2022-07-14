@@ -28,5 +28,8 @@ module.exports = {
   rules: {
     'no-var': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/ban-types': ['off'],
+    'vue/multi-word-component-names': 'off',
   },
 }
