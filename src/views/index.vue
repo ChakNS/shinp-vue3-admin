@@ -1,14 +1,7 @@
 <template>
-  <h5>{{ nameStore.name }}</h5>
-  <AButton>测试</AButton>
+  <div style="width: 800px; height: 600px; margin: auto"><ShinpForm :config="Config" /></div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useNameStore } from '@/store'
-// import 'ant-design-vue/es/button/style/css'
-
-const nameStore = useNameStore()
-
-const name = ref('chak')
+import Config from './config.tsx'
 </script>
