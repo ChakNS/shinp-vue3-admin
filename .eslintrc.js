@@ -7,13 +7,7 @@ module.exports = {
   },
   parser: 'vue-eslint-parser',
   // 扩展规则
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier'],
   parserOptions: {
     ecmaVersion: 12,
     parser: '@typescript-eslint/parser',
@@ -24,6 +18,7 @@ module.exports = {
   },
   // 注册插件
   plugins: ['vue', '@typescript-eslint', 'prettier'],
+  globals: { defineOptions: 'writable' },
   // 规则 根据自己需要增加
   rules: {
     'no-var': 'error',
@@ -31,5 +26,13 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': ['off'],
     '@typescript-eslint/ban-types': ['off'],
     'vue/multi-word-component-names': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 150,
+        arrowParens: 'avoid',
+        bracketSpacing: true,
+      },
+    ],
   },
 }

@@ -8,7 +8,7 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'index',
     component: () => import('@/views/index.vue'),
-  }
+  },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
@@ -21,10 +21,10 @@ export async function setupRouter(app: App) {
   // 创建路由守卫
   createRouterGuards(router)
 
-  app.use(router);
+  app.use(router)
 
   // 路由准备就绪后挂载APP实例
-  await router.isReady();
+  await router.isReady()
 }
 
 export default router

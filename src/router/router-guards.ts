@@ -5,7 +5,7 @@ export function createRouterGuards(router: Router) {
     next()
   })
 
-  router.onError((error) => {
-    console.log(error, '路由错误');
+  router.onError(error => {
+    console.log(error, '路由错误')
   })
 }

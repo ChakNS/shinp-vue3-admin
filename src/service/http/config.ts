@@ -6,7 +6,7 @@ function requestInterceptors(config: AxiosRequestConfig<any>): AxiosRequestConfi
   return config
 }
 
-function responseInterceptors (response: AxiosResponse<any>): AxiosResponse<any> {
+function responseInterceptors(response: AxiosResponse<any>): AxiosResponse<any> {
   console.log('response interceptors')
   // do something...
   return response
@@ -19,12 +19,6 @@ export function initDefaults(axios: Axios) {
 }
 
 export function initInterceptors(axios: Axios) {
-  axios.interceptors.request.use(
-    requestInterceptors,
-    (err: AxiosError): AxiosError => err
-  )
-  axios.interceptors.response.use(
-    responseInterceptors,
-    (err: AxiosError): AxiosError => err
-  )
+  axios.interceptors.request.use(requestInterceptors, (err: AxiosError): AxiosError => err)
+  axios.interceptors.response.use(responseInterceptors, (err: AxiosError): AxiosError => err)
 }
