@@ -7,20 +7,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AButton: typeof import('ant-design-vue/es')['Button']
     ACol: typeof import('ant-design-vue/es')['Col']
     AForm: typeof import('ant-design-vue/es')['Form']
     AFormItem: typeof import('ant-design-vue/es')['FormItem']
-    AInput: typeof import('ant-design-vue/es')['Input']
-    App: typeof import('./src/App.vue')['default']
     ARow: typeof import('ant-design-vue/es')['Row']
-    Component: typeof import('./src/components/ShinpForm/component.tsx')['default']
-    Config: typeof import('./src/views/config.tsx')['default']
-    FormInput: typeof import('./src/components/ShinpForm/components/formInput.tsx')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShinpForm: typeof import('./src/components/ShinpForm/index.vue')['default']
-    Views: typeof import('./src/views/index.vue')['default']
   }
 }
