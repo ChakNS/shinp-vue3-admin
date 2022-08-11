@@ -5,4 +5,4 @@ export function setupPinia(app: App) {
   app.use(createPinia())
 }
 
-export * from './stores/name'
+export * from './stores/layout'
