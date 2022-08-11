@@ -16,10 +16,13 @@ export default defineConfig({
     // 开发配置
     host: '0.0.0.0',
     port: 8080,
-    open: true,
+    open: false,
     https: false,
     proxy: {},
   },
+  // build: {
+  //   target: ['edge90', 'chrome90', 'firefox90', 'safari15'],
+  // },
   plugins: [
     vue(),
     vueJsx({}),
