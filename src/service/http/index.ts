@@ -1,18 +1,31 @@
-import axios from 'axios'
 import { AxiosHttp } from './types'
-import { initDefaults, initInterceptors } from './config'
+import { setupAxios } from './config'
 
-initDefaults(axios) // 全局配置
-initInterceptors(axios) // 拦截
+const axios = setupAxios()
 
 // 请求函数组
 const http: AxiosHttp = {
-  get(url, params) {
-    return axios.get(url, { params }).then(res => res.data)
+  get(url, data, options = {}) {
+    return axios({
+      method: 'get',
+      url,
+      data,
+      ...options,
+    }).then(res => res.data)
   },
-  post(url, params) {
-    return axios.post(url, { params }).then(res => res.data)
+  post(url, data, options = {}) {
+    return axios({
+      method: 'post',
+      url,
+      data,
+      ...options,
+    }).then(res => res.data)
   },
 }
 
 export default http
+
+export function isCancel(err: Error) {
+  if (!err) return false
+  return axios.isCancel!(err)
+}

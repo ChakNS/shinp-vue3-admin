@@ -1,9 +1,10 @@
 <template>
-  <Layout>
-    <router-view />
-  </Layout>
+  <RouterView />
 </template>
 
-<script setup>
-import Layout from '@/layout/index.vue'
+<script setup lang="ts">
+import { useSystemStore } from '@/store'
+
+const systemStore = useSystemStore()
+systemStore.initMenuList()
 </script>

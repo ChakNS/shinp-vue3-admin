@@ -6,7 +6,7 @@
         <Header />
         <div class="fixed-bar" />
         <Content>
-          <slot />
+          <RouterView />
         </Content>
         <Footer />
       </ALayout>
