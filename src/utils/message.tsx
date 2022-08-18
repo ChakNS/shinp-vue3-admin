@@ -6,45 +6,47 @@ import { VNode } from 'vue'
 
 type ContentType = string | VNode
 
+type TYPE = 'SUCCESS' | 'WARN' | 'ERROR'
+
 enum EMOJI {
   SUCCESS = '😊',
   WARN = '😯',
   ERROR = '😢',
 }
 
+enum COLOR {
+  SUCCESS = '#52c41a',
+  WARN = '#faad14',
+  ERROR = '#f5222d',
+}
+
+enum CONTENT {
+  SUCCESS = '调用成功',
+  WARN = '有点小问题',
+  ERROR = '系统崩了',
+}
+
 const DURATION = 1.5
 
-function baseMessage(c) {
-  const defaultConfig = {
-    duration: DURATION,
+function baseMessage(type: TYPE, { content, duration, onClose }) {
+  const config = {
+    content: <span style={{ color: COLOR[type] }}>{content || CONTENT[type]}</span>,
+    duration: duration || DURATION,
+    icon: <span>{EMOJI[type]}</span>,
+    onClose,
   }
-  const config = Object.assign({}, defaultConfig, c)
+
   message.open(config)
 }
 
 export function ShinpSuccess(content?: ContentType, duration?: number, onClose?: ConfigOnClose) {
-  baseMessage({
-    content: <span style={{ color: '#52c41a' }}>{content || '调用成功'}</span>,
-    duration,
-    onClose,
-    icon: <span>{EMOJI.SUCCESS}</span>,
-  })
+  baseMessage('SUCCESS', { content, duration, onClose })
 }
 
 export function ShinpWarn(content?: ContentType, duration?: number, onClose?: ConfigOnClose) {
-  baseMessage({
-    content: <span style={{ color: '#faad14' }}>{content || '有点小问题'}</span>,
-    duration,
-    onClose,
-    icon: <span>{EMOJI.WARN}</span>,
-  })
+  baseMessage('WARN', { content, duration, onClose })
 }
 
 export function ShinpError(content?: ContentType, duration?: number, onClose?: ConfigOnClose) {
-  baseMessage({
-    content: <span style={{ color: '#f5222d' }}>{content || '系统崩了'}</span>,
-    duration,
-    onClose,
-    icon: <span>{EMOJI.ERROR}</span>,
-  })
+  baseMessage('ERROR', { content, duration, onClose })
 }
